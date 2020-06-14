@@ -32,9 +32,10 @@ function init() {
       };
 
     // Create bar chart for the first subject in the data
-    var data = [trace1];
-    var layout = {
-        title: "Belly Button Biodiversity",
+    var layout1 = {
+        title: "Belly Button Biodiversity Bar Chart",
+        xaxis:{title: "OTU Values"},
+        yaxis:{title: "OTU ID"},
         margin: {
           l: 100,
           r: 100,
@@ -43,11 +44,40 @@ function init() {
         }
       };
     
+    // creating data variable 
+    var data1 = [trace1];
+
     // Create your bar chart using plotly
-    Plotly.newPlot("bar", data, layout);
+    Plotly.newPlot("bar", data1, layout1);
 
 
     // Bubble plot
+    var trace2 = {
+      x: data.samples[0].otu_ids,
+      y: data.samples[0].sample_values,
+      mode: "markers",
+      marker: {
+          size: data.samples[0].sample_values,
+          color: data.samples[0].otu_ids
+      },
+      text:  data.samples[0].otu_labels
+
+    };
+
+    // set the layout for the bubble plot
+    var layout_2 = {
+      title: "Belly Button Biodiversity Bubble Plot",
+      xaxis:{title: "OTU ID"},
+      yaxis:{title: "OTU Values"},
+      height: 600,
+      width: 1000
+    };
+
+    // creating data variable 
+    var data2 = [trace2];
+
+    // create the bubble plot
+    Plotly.newPlot("bubble", data2, layout_2); 
 
     // Insert metadata into panel for first subject
 
