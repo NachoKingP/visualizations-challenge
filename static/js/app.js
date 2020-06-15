@@ -7,9 +7,6 @@
 // Initialize Page
 function init() {
   d3.json("samples.json").then((data) => {
-    // Create dropdown Menu
-
-    
     // select dropdown menu 
     var dropdown = d3.select("#selDataset");
 
@@ -107,7 +104,7 @@ function init() {
   });
 }
 
-// Update plots and metadata for newly selected value
+// Update plots and metadata for newly selected value in dropdown menu
 function optionChanged(selectValue) {
   d3.json("samples.json").then((data) => {
 
